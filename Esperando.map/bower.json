@@ -1,0 +1,20 @@
+{
+  "name": "Esperando.map",
+  "version": "0.0.0",
+  "authors": [
+    "JonatanSCS <jonatanscs97@hotmail.com>"
+  ],
+  "main": "index.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "google-map": "~0.4.1",
+    "google-map-markerclusterer": "~0.0.1"
+  }
+}

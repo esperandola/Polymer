@@ -1,0 +1,158 @@
+<link rel="import" href="../bower_components/core-ajax/core-ajax.html">
+<link rel="import" href="../bower_components/core-scaffold/core-scaffold.html">
+<link rel="import" href="../bower_components/core-header-panel/core-header-panel.html">
+<link rel="import" href="../bower_components/core-menu/core-menu.html">
+<link rel="import" href="../bower_components/core-item/core-item.html">
+<link rel="import" href="../bower_components/core-icon-button/core-icon-button.html">
+<link rel="import" href="../bower_components/core-toolbar/core-toolbar.html">
+<link rel="import" href="../bower_components/core-icons/core-icons.html">
+<link rel="import" href="../bower_components/core-icon/core-icon.html">
+<link rel="import" href="../bower_components/core-input/core-input.html">
+<link rel="import" href="../bower_components/core-menu/core-submenu.html">
+<link rel="import" href="../bower_components/core-field/core-field.html">
+<link rel="import" href="../bower_components/google-map/google-map.html">
+<link rel="import" href="../bower_components/google-map/google-map-search.html">
+<link rel="import" href="../bower_components/google-map-markerclusterer/google-map-markerclusterer.html">
+
+<polymer-element name="my-maps">
+
+  <template>
+    <style> 
+      
+      body{
+        margin: 0!important;
+
+      }
+
+      :host {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        background-color: rgb(46, 204, 113);
+        font-family: 'Open Sans', sans-serif;
+      }
+      #core_scaffold {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+      }
+      #core_toolbar {
+        background-color: rgb(52, 152, 219);
+        color: rgb(255, 255, 255);
+      }
+      #core_menu {
+        font-size: 16px;
+      }
+      #google_map {
+        width: 100%;
+        height: 100%;
+        display: block;
+        left: 0px;
+        top: 0px;
+        position: absolute;
+      }
+      #google_map_directions {
+        left: 0px;
+        top: 0px;
+        position: absolute;
+      }
+      #google_map_directions1 {
+        left: 0px;
+        top: 0px;
+        position: absolute;
+      }
+      #core_field1 {
+        left: 90px;
+        top: 440px;
+        position: absolute;
+        background-color: rgb(46, 204, 113);
+      }
+      #core_field2 {
+        left: 0px;
+        top: 10px;
+      }
+      #input {
+        padding: 15px;
+        left: 60px;
+        top: 10px;
+        position: absolute;
+        width: 160px;
+      }
+      #google_map_search {
+        left: 480px;
+        top: 450px;
+        position: absolute;
+      }
+      #smoothie_chart {
+        left: 1070px;
+        top: 480px;
+      }
+      #core_icon {
+        left: 28px;
+        top: 20px;
+        position: absolute;
+      }
+      #speech_mic1 {
+        display: block;
+        left: 100px;
+        top: 0px;
+      }
+      #core_item {
+        opacity: 1;
+      }
+      #core_item1 {
+        opacity: 1;
+      }
+      #core_header_panel {
+        background-color: rgb(230, 126, 34);
+      }
+    </style>
+    <core-scaffold id="core_scaffold">
+      <core-header-panel mode="seamed" id="core_header_panel" navigation flex>
+        <core-toolbar id="core_toolbar" class="drop-target">
+          <core-icon icon="search" id="core_icon"></core-icon>
+          <input id="input" placeholder="Buscale" is="core-input">
+        </core-toolbar>
+        <core-menu selected="Roadmap" valueattr="label" selectedindex="0" id="core_menu" theme="core-light-theme">
+          <core-item id="core_item" label="Roadmap" on-tap="{{ showRoad }}" icon="settings" horizontal center layout active></core-item>
+          <core-item id="core_item1" label="Satellite" on-tap="{{ showSat }}" icon="settings" horizontal center layout></core-item>
+        </core-menu>
+        <core-field id="core_field1" icon="search" theme="core-light-theme" center horizontal layout>
+          <core-input id="core_input1" flex></core-input>
+        </core-field>
+      </core-header-panel>
+      <div id="div" tool>Descuentos Cerca De Tí</div>
+      <google-map latitude="{{ $.google_map_search.result.latitude }}" longitude="{{ $.google_map_search.result.longitude }}" zoom="12" id="google_map">
+        <google-map-marker latitude="19.369275" longitude="-99.080676" title="Liverpool"></google-map-marker>
+        <google-map-marker latitude="19.293734" longitude="-99.182643" title="Sears"></google-map-marker>
+        <google-map-marker latitude="19.192740" longitude="-99.748302" title="Starbucks"></google-map-marker>
+        <google-map-marker latitude="19.238364" longitude="-99.986482" title="Lo que sea"></google-map-marker>
+        <google-map-marker latitude="19.430453" longitude="-99.200856" title="The Pool"></google-map-marker>
+        <google-map-marker latitude="19.411983" longitude="-99.180544" title="Centraal"></google-map-marker>
+
+
+      </google-map>
+      <google-map-search query="{{ $.input.value }}" map="{{ $.google_map.map }}" id="google_map_search"></google-map-search>
+    </core-scaffold>
+  </template>
+
+  <script>
+
+    Polymer({
+      showRoad: function () {
+        this.$.google_map.mapType= 'roadmap';
+      },
+      showSat: function () {
+        this.$.google_map.mapType= 'satellite';
+      },
+      map: null
+    });
+
+  </script>
+
+</polymer-element>
