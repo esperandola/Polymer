@@ -130,43 +130,41 @@
       <div id="div" tool>Descuentos Cerca De Tí</div>
       <google-map fitToMarkers latitude="{{ $.google_map_search.result.latitude }}" longitude="{{ $.google_map_search.result.longitude }}" zoom="12" id="google_map">
         <google-map-marker latitude="19.369275" longitude="-99.080676" title="Liverpool" >
-            <google-map-InfoWindow>
-          <p>Liverpool</p>
-      </google-map-InfoWindow>
-      </google-map-marker>
-        <google-map-marker latitude="19.293734"  longitude="-99.182643" title="Sears" showCenterMarker="True"></google-map-marker>
+          <google-map-InfoWindow>
+            <p>Liverpool</p>
+          </google-map-InfoWindow>
+        </google-map-marker>
+        <google-map-marker latitude="19.293734"  longitude="-99.182643" title="Sears" showCenterMarker="True">
+          <google-map-InfoWindow>
+            <p>Sears</p>
+          </google-map-InfoWindow>
+        </google-map-marker>
         <google-map-marker latitude="19.192740" longitude="-99.748302" title="Starbucks" showCenterMarker="True">
-            <google-map-InfoWindow>
-          <p>Starbucks</p>
-      </google-map-InfoWindow>
-      </google-map-marker>
+          <google-map-InfoWindow>
+            <p>Starbucks</p>
+          </google-map-InfoWindow>
+        </google-map-marker>
         <google-map-marker latitude="19.238364" longitude="-99.986482" title="Lo que sea" >
-            <google-map-InfoWindow>
-          <p>Lo que sea</p>
-      </google-map-InfoWindow>
-      </google-map-marker>
+          <google-map-InfoWindow>
+            <p>Lo que sea</p>
+          </google-map-InfoWindow>
+        </google-map-marker>
         <google-map-marker latitude="19.430453" longitude="-99.200856" title="The Pool">
-            <google-map-InfoWindow>
-          <p>The Pool</p>
-      </google-map-InfoWindow>
+          <google-map-InfoWindow>
+            <p>The Pool</p>
+        </google-map-InfoWindow>
         </google-map-marker>
         <google-map-marker latitude="19.411983" longitude="-99.180544" title="Centraal" showCenterMarker="True">
           <google-map-InfoWindow>
-          <p>Centraal</p>
-      </google-map-InfoWindow>
-      </google-map-marker>
-
-
-
+            <p>Centraal</p>
+          </google-map-InfoWindow>
+        </google-map-marker>
       </google-map>
       <google-map-search query="{{ $.input.value }}" map="{{ $.google_map.map }}" id="google_map_search"></google-map-search>
     </core-scaffold>
   </template>
 
   <script>
-
-
-
     Polymer({
       showRoad: function () {
         this.$.google_map.mapType= 'roadmap';
@@ -176,7 +174,5 @@
       },
       map: null
     });
-
   </script>
-
 </polymer-element>
